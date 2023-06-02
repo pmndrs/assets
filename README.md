@@ -2,6 +2,32 @@
 npm install @pmndrs/assets
 ```
 
+# Index
+
+<table>
+  <tr>
+    <td valign="top">
+      <ul>
+        <li><a href="#hdris">HDRIs</a></li>
+        <ul>
+          <li><a href="#apartment">Apartment</a></li>
+          <li><a href="#city">City</a></li>
+          <li><a href="#dawn">Dawn</a></li>
+          <li><a href="#forest">Forest</a></li>
+          <li><a href="#night">Night</a></li>
+          <li><a href="#studio">Studio</a></li>
+          <li><a href="#sunset">Sunset</a></li>
+          <li><a href="#warehouse">Warehouse</a></li>
+        </ul>
+        <li><a href="#textures">Textures</a></li>
+        <ul>
+          <li><a href="#cloud">Cloud</a></li>
+        </ul>       
+      </ul>
+    </td>
+  </tr>
+</table>
+
 # Usage
 
 ### React-three-fiber
@@ -46,32 +72,6 @@ new THREE.RGBELoader().load(sunset, (texture) => {
 })
 ```
 
-# Index
-
-<table>
-  <tr>
-    <td valign="top">
-      <ul>
-        <li><a href="#hdris">HDRIs</a></li>
-        <ul>
-          <li><a href="#apartment">Apartment</a></li>
-          <li><a href="#city">City</a></li>
-          <li><a href="#dawn">Dawn</a></li>
-          <li><a href="#forest">Forest</a></li>
-          <li><a href="#night">Night</a></li>
-          <li><a href="#studio">Studio</a></li>
-          <li><a href="#sunset">Sunset</a></li>
-          <li><a href="#warehouse">Warehouse</a></li>
-        </ul>
-        <li><a href="#textures">Textures</a></li>
-        <ul>
-          <li><a href="#cloud">Cloud</a></li>
-        </ul>       
-      </ul>
-    </td>
-  </tr>
-</table>
-
 # HDRIs
 
 #### apartment
@@ -81,7 +81,7 @@ new THREE.RGBELoader().load(sunset, (texture) => {
 #### night
 #### studio
 #### sunset
-#### warehouse
+#### sunset
 
 # Textures
 
