@@ -51,13 +51,7 @@ new THREE.RGBELoader().load(sunset.default, (texture) => {
 })
 ```
 
-Keep [bundler limitations](https://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars#limitations) in mind when you use fully dynamic imports. The following for instance would offload all HDRI's into your /dist folder, even if your application only uses a single one. The bundle that is served to the client would still only ever contain the assets you actually use, so this is more of an admininstrative storage concern.
-
-```jsx
-const preset = await import(`@pmndrs/assets/${preset}.js`)
-new THREE.RGBELoader().load(preset.default, (texture) => {
-  // ...
-})
+Keep [bundler limitations](https://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars#limitations) in mind when you use fully dynamic imports with template literals.
 ```
 
 ### Import (usually not recommended)
