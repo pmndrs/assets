@@ -1,0 +1,24 @@
+{
+  "name": "@pmndrs/assets",
+  "version": "0.0.0",
+  "description": "📦 Base64 encoded CC0 assets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pmndrs/assets.git"
+  },
+  "keywords": [
+    "cc0",
+    "assets",
+    "pmndrs"
+  ],
+  "author": "Paul Henschel",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/pmndrs/assets/issues"
+  },
+  "homepage": "https://github.com/pmndrs/assets#readme"
+}
