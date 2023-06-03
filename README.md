@@ -52,7 +52,6 @@ new THREE.RGBELoader().load(sunset.default, (texture) => {
 ```
 
 Keep [bundler limitations](https://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars#limitations) in mind when you use fully dynamic imports with template literals.
-```
 
 ### Import (usually not recommended)
 
