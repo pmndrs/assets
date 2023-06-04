@@ -20,6 +20,7 @@ jobs:
       - id: main
         run: |
           yarn install
+          yarn build
           yarn release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
