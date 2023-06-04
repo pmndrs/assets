@@ -1,10 +1,19 @@
 {
   "name": "@pmndrs/assets",
-  "version": "0.0.0",
+  "version": "0.0.0-semantic-release",
   "description": "📦 Base64 encoded CC0 assets",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist && cp -rf src dist",
+    "prepack": "npm run build && npm run copy",
+    "copy": "copyfiles package.json README.md LICENSE dist && json -I -f dist/package.json -e \"this.private=false; this.devDependencies=undefined; this.optionalDependencies=undefined; this.scripts=undefined; this.husky=undefined; this.prettier=undefined; this.jest=undefined; this['lint-staged']=undefined;\"",
+    "release": "semantic-release"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.3.0",
+    "json": "^11.0.0",
+    "semantic-release": "^20.1.1"
   },
   "repository": {
     "type": "git",
