@@ -1,8 +1,11 @@
 SRC = src
 DIST = dist
 
-FILES = $(shell find $(SRC) -name '*.hdr' -o -name '*.webp' -o -name '*.jpg')
+FILES = $(shell find $(SRC) -name '*.hdr' -o -name '*.webp' -o -name '*.jpg' -o -name '*.png')
 TARGETS = $(patsubst $(SRC)/%,$(DIST)/%.js,$(FILES:%.hdr=%.exr))
+
+RESIZE = 512x512
+QUALITY = 80
 
 all: $(TARGETS)
 
@@ -14,16 +17,13 @@ $(DIST)/%.js: $(SRC)/%.b64
 	base64 -i $^ -o $@
 
 %.exr.compressed: %.hdr
-	echo "compressing hdr file: $<"
-	convert $< -compress DWAB -resize 512x512  $@
-
+	convert $< -compress DWAB -resize $(RESIZE) $@
 %.webp.compressed: %.webp
-	echo "compressing webp file: $<"
-	cp $< $@
-
+	convert $< -quality $(QUALITY) -resize $(RESIZE) $@
 %.jpg.compressed: %.jpg
-	echo "compressing jpg file: $<"
-	cp $< $@
+	convert $< -quality $(QUALITY) -resize $(RESIZE) $@
+%.png.compressed: %.png
+	convert $< -quality $(QUALITY) -resize $(RESIZE) $@
 
 .PHONY: clean
 clean:
