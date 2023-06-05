@@ -11,7 +11,7 @@ all: $(TARGETS)
 
 $(DIST)/%.js: $(SRC)/%.b64
 	mkdir -p $(dir $@)
-	cat $^ | ./bin/b64toesm > $@
+	cat $^ | ./bin/b64toesm.js > $@
 
 %.b64: %.compressed
 	cat $^ | base64 > $@

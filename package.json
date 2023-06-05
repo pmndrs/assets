@@ -3,6 +3,7 @@
   "version": "0.0.0-semantic-release",
   "description": "📦 Base64 encoded CC0 assets",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf dist && make && npm run copy",
