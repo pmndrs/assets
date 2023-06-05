@@ -14,7 +14,7 @@ $(DIST)/%.js: $(SRC)/%.b64
 	cat $^ | ./bin/b64toesm > $@
 
 %.b64: %.compressed
-	base64 -i $^ -o $@
+	cat $^ | base64 > $@
 
 %.exr.compressed: %.hdr
 	convert $< -compress DWAB -resize $(RESIZE) $@
