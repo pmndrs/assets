@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   branches: ['main'],
   plugins: [
     // https://github.com/semantic-release/semantic-release/blob/master/docs/extending/plugins-list.md
