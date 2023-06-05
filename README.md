@@ -36,8 +36,9 @@ Components in the R3F eco system know how to deal with promises.
 
 ```jsx
 import { Environment } from '@react-three/drei'
+const city = await import('@pmndrs/assets/hdri/city.exr')
 ...
-<Environment files={import('@pmndrs/assets/sunset')} />
+<Environment files={city} />
 ```
 
 ### Dynamic import
@@ -45,8 +46,8 @@ import { Environment } from '@react-three/drei'
 If you import the asset will be bundle split, it will not be part of your main bundle.
 
 ```jsx
-const sunset = await import('@pmndrs/assets/sunset.js')
-new THREE.RGBELoader().load(sunset.default, (texture) => {
+const city = await import('pmndrs/assets/hdri/city.exr')
+new THREE.RGBELoader().load(city.default, (texture) => {
   // ...
 })
 ```
@@ -58,9 +59,9 @@ Keep [bundler limitations](https://github.com/rollup/plugins/tree/master/package
 You can do it in files that already are split from the main bundle. But it is not recommended for your entry points, it would increase the bundle size by a lot.
 
 ```jsx
-import sunset from '@pmndrs/assets/sunset'
+import city from 'pmndrs/assets/hdri/city.exr'
 
-new THREE.RGBELoader().load(sunset, (texture) => {
+new THREE.RGBELoader().load(city, (texture) => {
   // ...
 })
 ```
