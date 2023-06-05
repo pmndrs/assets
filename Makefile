@@ -1,17 +1,29 @@
-SRC = $(wildcard src/**/*.hdr)
-DST = $(patsubst src/%.hdr,dist/%.js,$(SRC))
+SRC = src
+DIST = dist
 
-all: $(DST)
+FILES = $(shell find $(SRC) -name '*.hdr' -o -name '*.webp' -o -name '*.jpg')
+TARGETS = $(patsubst $(SRC)/%,$(DIST)/%.js,$(FILES:%.hdr=%.exr))
 
-dist/%.js: src/%.b64
+all: $(TARGETS)
+
+$(DIST)/%.js: $(SRC)/%.b64
 	mkdir -p $(dir $@)
 	cat $^ | ./bin/b64toesm > $@
 
-%.b64: %.exr
+%.b64: %.compressed
 	base64 -i $^ -o $@
 
-%.exr: %.hdr
-	convert $^ -compress DWAB -resize 512x512 $@
+%.exr.compressed: %.hdr
+	echo "compressing hdr file: $<"
+	convert $< -compress DWAB -resize 512x512  $@
+
+%.webp.compressed: %.webp
+	echo "compressing webp file: $<"
+	cp $< $@
+
+%.jpg.compressed: %.jpg
+	echo "compressing jpg file: $<"
+	cp $< $@
 
 .PHONY: clean
 clean:
