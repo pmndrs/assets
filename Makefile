@@ -17,7 +17,9 @@ $(DIST)/%.js: $(SRC)/%.b64
 	cat $^ | base64 > $@
 
 %.exr.compressed: %.hdr
-	convert $< -compress PIZ -resize $(RESIZE) $@
+	magick $< $*.exr
+	convert $*.exr -compress PIZ -resize $(RESIZE) $@
+	rm $*.exr
 %.webp.compressed: %.webp
 	convert $< -quality $(QUALITY) -resize $(RESIZE) $@
 %.jpg.compressed: %.jpg
