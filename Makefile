@@ -17,7 +17,7 @@ $(DIST)/%.js: $(SRC)/%.b64
 	cat $^ | base64 > $@
 
 %.exr.compressed: %.hdr
-	magick $< $*.exr
+	convert $< $*.exr
 	convert $*.exr -compress PIZ -resize $(RESIZE) $@
 	rm $*.exr
 %.webp.compressed: %.webp
