@@ -1,17 +1,29 @@
-SRC = $(wildcard src/**/*.hdr)
-DST = $(patsubst src/%.hdr,dist/%.js,$(SRC))
+SRC = src
+DIST = dist
 
-all: $(DST)
+FILES = $(shell find $(SRC) -name '*.hdr' -o -name '*.webp' -o -name '*.jpg' -o -name '*.png')
+TARGETS = $(patsubst $(SRC)/%,$(DIST)/%.js,$(FILES:%.hdr=%.exr))
 
-dist/%.js: src/%.b64
+RESIZE = 512x512
+QUALITY = 80
+
+all: $(TARGETS)
+
+$(DIST)/%.js: $(SRC)/%.b64
 	mkdir -p $(dir $@)
 	cat $^ | ./bin/b64toesm > $@
 
-%.b64: %.exr
+%.b64: %.compressed
 	base64 -i $^ -o $@
 
-%.exr: %.hdr
-	convert $^ -compress DWAB -resize 512x512 $@
+%.exr.compressed: %.hdr
+	convert $< -compress DWAB -resize $(RESIZE) $@
+%.webp.compressed: %.webp
+	convert $< -quality $(QUALITY) -resize $(RESIZE) $@
+%.jpg.compressed: %.jpg
+	convert $< -quality $(QUALITY) -resize $(RESIZE) $@
+%.png.compressed: %.png
+	convert $< -quality $(QUALITY) -resize $(RESIZE) $@
 
 .PHONY: clean
 clean:
