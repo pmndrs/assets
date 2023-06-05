@@ -14,7 +14,7 @@ $(DIST)/%.js: $(SRC)/%.b64
 	cat $^ | ./bin/b64toesm.js > $@
 
 %.b64: %.compressed
-	cat $^ | base64 > $@
+	cat $^ | openssl base64 | tr -d '\n' > $@
 
 %.exr.compressed: %.hdr
 	convert $< $*.exr
