@@ -47,7 +47,7 @@ If you import the asset will be bundle split, it will not be part of your main b
 
 ```jsx
 const city = await import('pmndrs/assets/hdri/city.exr')
-new THREE.RGBELoader().load(city.default, (texture) => {
+new THREE.EXRLoader().load(city.default, (texture) => {
   // ...
 })
 ```
@@ -61,7 +61,7 @@ You can do it in files that already are split from the main bundle. But it is no
 ```jsx
 import city from 'pmndrs/assets/hdri/city.exr'
 
-new THREE.RGBELoader().load(city, (texture) => {
+new THREE.EXRLoader().load(city, (texture) => {
   // ...
 })
 ```
