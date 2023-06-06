@@ -69,14 +69,29 @@ new THREE.RGBELoader().load(city, (texture) => {
 # HDRIs
 
 #### apartment
+
 #### city
+
 #### dawn
+
 #### forest
+
 #### night
+
 #### studio
+
 #### sunset
+
 #### sunset
 
 # Textures
 
 #### cloud
+
+# Build
+
+Pre-requisites:
+
+- Make
+- ImageMagick 7+
+- jq

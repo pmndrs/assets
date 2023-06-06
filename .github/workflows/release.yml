@@ -17,7 +17,7 @@ jobs:
       - name: Install brew packages # https://docs.github.com/en/actions/using-github-hosted-runners/customizing-github-hosted-runners
         run: |
           brew update
-          brew install imagemagick
+          brew install imagemagick jq
       - uses: actions/setup-node@v3
         with:
           cache: 'yarn'

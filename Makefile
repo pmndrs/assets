@@ -26,6 +26,8 @@ $(DIST)/%.js: $(SRC)/%.b64
 	convert $< -quality $(QUALITY) -resize $(RESIZE) $@
 %.png.compressed: %.png
 	convert $< -quality $(QUALITY) -resize $(RESIZE) $@
+%.json.compressed: %.json
+	cat $< | jq -c > $@
 
 # Fallback for all other extensions
 %.compressed: %
