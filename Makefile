@@ -1,7 +1,7 @@
 SRC = src
 DIST = dist
 
-FILES = $(shell find $(SRC) -name '*.hdr' -o -name '*.webp' -o -name '*.jpg' -o -name '*.png')
+FILES = $(shell find $(SRC) -type f -name '[!.]*') # all except hidden files
 TARGETS = $(patsubst $(SRC)/%,$(DIST)/%.js,$(FILES:%.hdr=%.exr))
 
 RESIZE = 512x512
@@ -27,6 +27,10 @@ $(DIST)/%.js: $(SRC)/%.b64
 %.png.compressed: %.png
 	convert $< -quality $(QUALITY) -resize $(RESIZE) $@
 
+# Fallback for all other extensions
+%.compressed: %
+	cp $< $@
+
 .PHONY: clean
 clean:
-	rm -rf dist
+	rm -rf $(DIST)
