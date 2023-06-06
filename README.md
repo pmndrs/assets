@@ -46,7 +46,7 @@ const city = import('@pmndrs/assets/hdri/city.exr')
 If you import the asset will be bundle split, it will not be part of your main bundle.
 
 ```jsx
-const city = await import('pmndrs/assets/hdri/city.exr')
+const city = await import('@pmndrs/assets/hdri/city.exr')
 new THREE.EXRLoader().load(city.default, (texture) => {
   // ...
 })
@@ -59,7 +59,7 @@ Keep [bundler limitations](https://github.com/rollup/plugins/tree/master/package
 You can do it in files that already are split from the main bundle. But it is not recommended for your entry points, it would increase the bundle size by a lot.
 
 ```jsx
-import city from 'pmndrs/assets/hdri/city.exr'
+import city from '@pmndrs/assets/hdri/city.exr'
 
 new THREE.EXRLoader().load(city, (texture) => {
   // ...
