@@ -36,7 +36,7 @@ Components in the R3F eco system know how to deal with promises.
 
 ```jsx
 import { Environment } from '@react-three/drei'
-const city = await import('@pmndrs/assets/hdri/city.exr')
+const city = import('@pmndrs/assets/hdri/city.exr')
 ...
 <Environment files={city} />
 ```
