@@ -99,3 +99,7 @@ Pre-requisites:
 - Make
 - ImageMagick 7+
 - jq
+
+```sh
+$ make
+```
