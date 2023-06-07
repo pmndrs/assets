@@ -72,6 +72,12 @@ new THREE.EXRLoader().load(city, (texture) => {
 
 # HDRIs
 
+<p>
+  <a href="https://codesandbox.io/s/eeznq6">
+    <img width="20%" alt="" src="https://github-production-user-asset-6210df.s3.amazonaws.com/76580/244015488-fa7994c5-d696-487d-90ad-8d06846874a3.png">
+  </a>
+</p>
+
 #### apartment
 
 #### city
