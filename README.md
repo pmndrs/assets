@@ -13,20 +13,7 @@ npm install @pmndrs/assets
     <td valign="top">
       <ul>
         <li><a href="#hdris">HDRIs</a></li>
-        <ul>
-          <li><a href="#apartment">Apartment</a></li>
-          <li><a href="#city">City</a></li>
-          <li><a href="#dawn">Dawn</a></li>
-          <li><a href="#forest">Forest</a></li>
-          <li><a href="#night">Night</a></li>
-          <li><a href="#studio">Studio</a></li>
-          <li><a href="#sunset">Sunset</a></li>
-          <li><a href="#warehouse">Warehouse</a></li>
-        </ul>
-        <li><a href="#textures">Textures</a></li>
-        <ul>
-          <li><a href="#cloud">Cloud</a></li>
-        </ul>       
+        <li><a href="#textures">Textures</a></li>     
       </ul>
     </td>
   </tr>
@@ -78,25 +65,20 @@ new THREE.EXRLoader().load(city, (texture) => {
   </a>
 </p>
 
-#### apartment
-
-#### city
-
-#### dawn
-
-#### forest
-
-#### night
-
-#### studio
-
-#### sunset
-
-#### sunset
+- apartment -- `@pmndrs/assets/hdri/apartment.exr`
+- city -- `@pmndrs/assets/hdri/city.exr`
+- dawn -- `@pmndrs/assets/hdri/dawn.exr`
+- forest -- `@pmndrs/assets/hdri/forest.exr`
+- lobby -- `@pmndrs/assets/hdri/lobby.exr`
+- night -- `@pmndrs/assets/hdri/night.exr`
+- park -- `@pmndrs/assets/hdri/park.exr`
+- studio -- `@pmndrs/assets/hdri/studio.exr`
+- sunset -- `@pmndrs/assets/hdri/sunset.exr`
+- warehouse -- `@pmndrs/assets/hdri/warehouse.exr`
 
 # Textures
 
-#### cloud
+- cloud -- `@pmndrs/assets/textures/cloud.png`
 
 # Build
 
