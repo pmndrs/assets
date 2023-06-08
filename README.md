@@ -6,6 +6,8 @@
 npm install @pmndrs/assets
 ```
 
+These assets are base64 packed javascript exports that can be npm installed and imported. They are thereby self-hosted and safe from outages. The HDRI's are converted to EXR, scaled to 512x152 pixels and DWAB compressed, they are 10-20x smaller than the Polyhaven originals.
+
 # Index
 
 <table>
