@@ -72,13 +72,13 @@ see: [`src/fonts`](src/fonts) for all
 
 # HDRIs
 
-A selection of [Polyhaven](https://polyhaven.com/hdris) HDRIs, resized to 512x512 and converted to EXR with ZIP compression.
-
 <p>
   <a href="https://codesandbox.io/s/eeznq6">
     <img width="20%" alt="" src="https://github-production-user-asset-6210df.s3.amazonaws.com/76580/244015488-fa7994c5-d696-487d-90ad-8d06846874a3.png">
   </a>
 </p>
+
+A selection of [Polyhaven](https://polyhaven.com/hdris) HDRIs, resized to 512x512 and converted to EXR with ZIP compression.
 
 ```js
 import('@pmndrs/assets/hdri/apartment.exr')
