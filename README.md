@@ -6,7 +6,7 @@
 npm install @pmndrs/assets
 ```
 
-These assets are base64 packed javascript exports that can be npm installed and imported. They are thereby self-hosted and safe from outages. The HDRI's are converted to EXR, scaled to 512x152 pixels and DWAB compressed, they are 10-20x smaller than the Polyhaven originals.
+These assets are base64 packed javascript exports that can be npm installed and imported. They are thereby self-hosted and safe from outages.
 
 # Index
 
@@ -62,7 +62,7 @@ new THREE.EXRLoader().load(city, (texture) => {
 
 # Fonts
 
-The [Inter](https://rsms.me/inter/) font family converted to json using [facetype.js](https://gero3.github.io/facetype.js/) with a subset of `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789,;.:-_<>$£!+"*ç%&/~[]{}()=?``^'#€öÖäÄüÜ§°`.
+The [Inter](https://rsms.me/inter/) font family converted to json using [facetype.js](https://gero3.github.io/facetype.js/) with a subset of `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789,;.:-_<>$£!+"*ç%&/~[]{}()=?``^'#€öÖäÄüÜ§°`. Each file is only ~38kb.
 
 ```js
 import('@pmndrs/assets/fonts/inter_regular.json')
@@ -78,7 +78,7 @@ see: [`src/fonts`](src/fonts) for all
   </a>
 </p>
 
-A selection of [Polyhaven](https://polyhaven.com/hdris) HDRIs, resized to 512x512 and converted to EXR with ZIP compression.
+A selection of [Polyhaven](https://polyhaven.com/hdris) HDRIs, resized to 512x512 and converted to EXR with ZIP compression. They are about 3x smaller than the Polyhaven originals, ~500-800kb.
 
 ```js
 import('@pmndrs/assets/hdri/apartment.exr')
