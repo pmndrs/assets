@@ -46,12 +46,10 @@ $(DIST)/%.js: $(SRC)/%.b64
 
 %.webp.compressed: %.webp
 	convert $< -quality $(QUALITY) -resize $(RESIZE) $@
-TOWEBP_TYPES = png jpg
-define WEBP_TEMPLATE
-%.webp: %.$(1)
-	convert $$< $$@
-endef
-$(foreach type,$(TOWEBP_TYPES),$(eval $(call WEBP_TEMPLATE,$(type))))
+%.webp: %.png
+	convert $< $@
+%.webp: %.jpg
+	convert $< $@
 
 %.json.compressed: %.json
 	cat $< | jq -c > $@
