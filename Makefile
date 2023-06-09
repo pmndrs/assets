@@ -52,6 +52,7 @@ $(foreach type,$(TOWEBP_TYPES),$(eval $(call WEBP_TEMPLATE,$(type))))
 
 # Fallback for all other extensions
 %.compressed: %
+	echo "WARNING: COPYING $* WITH NO COMPRESSION"
 	cp $< $@
 
 .PHONY: clean
