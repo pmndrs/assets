@@ -18,8 +18,8 @@ JSON_FILES := $(wildcard $(SRC)/**/*.json)
 JSON_TARGETS := $(patsubst $(SRC)/%,$(DIST)/%.js,$(JSON_FILES))
 
 TARGETS = $(HDR_TARGETS) \
-					$(WEBP_TARGETS) $(PNG_TARGETS) $(JPG_TARGETS) \
-					$(JSON_TARGETS)
+	$(WEBP_TARGETS) $(PNG_TARGETS) $(JPG_TARGETS) \
+	$(JSON_TARGETS)
 
 RESIZE = 512x512
 QUALITY = 80
