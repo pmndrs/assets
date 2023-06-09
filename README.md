@@ -78,7 +78,7 @@ see: [`src/fonts`](src/fonts) for all
   </a>
 </p>
 
-A selection of [Polyhaven](https://polyhaven.com/hdris) HDRIs, resized to 512x512 and converted to EXR with ZIP compression. They are about 3x smaller than the Polyhaven originals, ~500-800kb.
+A selection of [Polyhaven](https://polyhaven.com/hdris) HDRIs, resized to 512x512 and converted to EXR with DWAB compression. They are about 7x smaller than the Polyhaven originals, ~200kb.
 
 ```js
 import('@pmndrs/assets/hdri/apartment.exr')
