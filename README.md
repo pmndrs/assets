@@ -61,13 +61,11 @@ new THREE.EXRLoader().load(city, (texture) => {
 
 # Fonts
 
-Eg:
-
 ```js
 import('@pmndrs/assets/fonts/inter_regular.json')
 ```
 
-> **Note** <br>see: [`src/fonts`](src/fonts) for all
+see: [`src/fonts`](src/fonts) for all
 
 # HDRIs
 
@@ -77,23 +75,19 @@ import('@pmndrs/assets/fonts/inter_regular.json')
   </a>
 </p>
 
-Eg:
-
 ```js
 import('@pmndrs/assets/hdri/apartment.exr')
 ```
 
-> **Note** <br>see: [`src/hdri`](src/hdri) for all
+see: [`src/hdri`](src/hdri) for all
 
 # Textures
-
-Eg:
 
 ```js
 import('@pmndrs/assets/textures/cloud.png')
 ```
 
-> **Note** <br>see: [`src/textures`](src/textures) for all
+see: [`src/textures`](src/textures) for all
 
 # Build
 
