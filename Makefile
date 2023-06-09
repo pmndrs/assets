@@ -62,14 +62,11 @@ $(DIST)/%.js: $(SRC)/%.b64
 	cat $< | jq -c > $@
 
 %.glb.compressed: %.glb
-	npx gltf-transform optimize $< $@
+	npx gltf-transform optimize $< $*.tmp.glb
+	cp $*.tmp.glb $@
+	rm $*.tmp.glb
 %.glb: %.gltf
-	cp $< $@
-
-# Fallback for all other extensions
-%.compressed: %
-	echo "WARNING: COPYING $* WITH NO COMPRESSION"
-	cp $< $@
+	npx gltf-transform copy $< $@
 
 .PHONY: clean
 clean:
