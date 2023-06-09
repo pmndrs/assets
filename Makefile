@@ -35,7 +35,7 @@ $(DIST)/%.js: $(SRC)/%.b64
 
 %.exr.compressed: %.hdr
 	convert $< $*.tmp.exr
-	convert $*.tmp.exr -compress ZIP -resize $(RESIZE) $@
+	convert $*.tmp.exr -compress DWAB -resize $(RESIZE) $@
 	rm $*.tmp.exr
 
 TOWEBP_TYPES = webp png jpg
