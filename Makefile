@@ -4,6 +4,12 @@ DIST = dist
 RESIZE = 512x512
 QUALITY = 80
 
+#
+# Build TARGETS
+#
+# To summup: src/**/*.{hdr,webp,png,jpg,json} => dist/**/*.{exr,webp,webp,webp,json}.js
+#
+
 # hdr -> exr.js
 HDR_FILES := $(wildcard $(SRC)/**/*.hdr)
 HDR_TARGETS := $(patsubst $(SRC)/%,$(DIST)/%.js,$(HDR_FILES:%.hdr=%.exr))
@@ -28,7 +34,7 @@ all: $(TARGETS)
 
 $(DIST)/%.js: $(SRC)/%.b64
 	mkdir -p $(dir $@)
-	cat $^ | ./bin/b64toesm.js > $@
+	echo "export default 'data:application/octet-binary;base64,$$(cat $<)'" > $@
 
 %.b64: %.compressed
 	cat $^ | openssl base64 | tr -d '\n' > $@

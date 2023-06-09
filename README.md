@@ -101,7 +101,7 @@ see: [`src/textures`](src/textures) for all
 Pre-requisites:
 
 - Make
-- ImageMagick
+- ImageMagick 7+
 - jq
 - openssl
 
