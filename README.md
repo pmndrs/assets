@@ -89,7 +89,7 @@ see: [`src/hdri`](src/hdri) for all
 
 # Models
 
-A selection of models optimized with [`gltf-transform convert`](https://gltf-transform.donmccurdy.com/cli) and converted to `glb`.
+A selection of models optimized with [`gltf-transform optimize`](https://gltf-transform.donmccurdy.com/cli) and converted to `glb`.
 
 ```js
 import('@pmndrs/assets/models/suzi.glb')
