@@ -21,11 +21,17 @@ $(DIST)/%.js: $(SRC)/%.b64
 	convert $*.exr -compress ZIP -resize $(RESIZE) $@
 	rm $*.exr
 %.webp.compressed: %.webp
-	convert $< -quality $(QUALITY) -resize $(RESIZE) $@
+	convert $< $*.webp
+	convert $*.webp -quality $(QUALITY) -resize $(RESIZE) $@
+	rm $*.webp
 %.jpg.compressed: %.jpg
-	convert $< -quality $(QUALITY) -resize $(RESIZE) $@
+	convert $< $*.webp
+	convert $*.webp -quality $(QUALITY) -resize $(RESIZE) $@
+	rm $*.webp
 %.png.compressed: %.png
-	convert $< -quality $(QUALITY) -resize $(RESIZE) $@
+	convert $< $*.webp
+	convert $*.webp -quality $(QUALITY) -resize $(RESIZE) $@
+	rm $*.webp
 %.json.compressed: %.json
 	cat $< | jq -c > $@
 
