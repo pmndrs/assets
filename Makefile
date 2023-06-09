@@ -18,7 +18,7 @@ $(DIST)/%.js: $(SRC)/%.b64
 
 %.exr.compressed: %.hdr
 	convert $< $*.exr
-	convert $*.exr -compress DWAB -resize $(RESIZE) $@
+	convert $*.exr -compress ZIP -resize $(RESIZE) $@
 	rm $*.exr
 %.webp.compressed: %.webp
 	convert $< -quality $(QUALITY) -resize $(RESIZE) $@

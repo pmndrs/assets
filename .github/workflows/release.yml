@@ -11,13 +11,12 @@ concurrency:
 
 jobs:
   release-job:
-    runs-on: macos-13
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Install brew packages # https://docs.github.com/en/actions/using-github-hosted-runners/customizing-github-hosted-runners
+      - name: Install packages
         run: |
-          brew update
-          brew install imagemagick jq
+          apt-get install imagemagick jq
       - uses: actions/setup-node@v3
         with:
           cache: 'yarn'
