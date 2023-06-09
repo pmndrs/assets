@@ -14,8 +14,9 @@ These assets are base64 packed javascript exports that can be npm installed and 
   <tr>
     <td valign="top">
       <ul>
+        <li><a href="#fonts">Fonts</a></li>
         <li><a href="#hdris">HDRIs</a></li>
-        <li><a href="#textures">Textures</a></li>     
+        <li><a href="#textures">Textures</a></li>
       </ul>
     </td>
   </tr>
@@ -59,6 +60,14 @@ new THREE.EXRLoader().load(city, (texture) => {
 })
 ```
 
+# Fonts
+
+```js
+import('@pmndrs/assets/fonts/inter_regular.json')
+```
+
+see: [`src/fonts`](src/fonts) for all
+
 # HDRIs
 
 <p>
@@ -67,27 +76,26 @@ new THREE.EXRLoader().load(city, (texture) => {
   </a>
 </p>
 
-- apartment -- `@pmndrs/assets/hdri/apartment.exr`
-- city -- `@pmndrs/assets/hdri/city.exr`
-- dawn -- `@pmndrs/assets/hdri/dawn.exr`
-- forest -- `@pmndrs/assets/hdri/forest.exr`
-- lobby -- `@pmndrs/assets/hdri/lobby.exr`
-- night -- `@pmndrs/assets/hdri/night.exr`
-- park -- `@pmndrs/assets/hdri/park.exr`
-- studio -- `@pmndrs/assets/hdri/studio.exr`
-- sunset -- `@pmndrs/assets/hdri/sunset.exr`
-- warehouse -- `@pmndrs/assets/hdri/warehouse.exr`
+```js
+import('@pmndrs/assets/hdri/apartment.exr')
+```
+
+see: [`src/hdri`](src/hdri) for all
 
 # Textures
 
-- cloud -- `@pmndrs/assets/textures/cloud.png`
+```js
+import('@pmndrs/assets/textures/cloud.png')
+```
+
+see: [`src/textures`](src/textures) for all
 
 # Build
 
 Pre-requisites:
 
 - Make
-- ImageMagick 7+
+- ImageMagick
 - jq
 
 ```sh
