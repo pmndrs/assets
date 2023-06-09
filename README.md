@@ -16,6 +16,7 @@ These assets are base64 packed javascript exports that can be npm installed and 
       <ul>
         <li><a href="#fonts">Fonts</a></li>
         <li><a href="#hdris">HDRIs</a></li>
+        <li><a href="#models">Models</a></li>
         <li><a href="#textures">Textures</a></li>
       </ul>
     </td>
@@ -88,6 +89,8 @@ see: [`src/hdri`](src/hdri) for all
 
 # Models
 
+A selection of models optimized with [`gltf-transform convert`](https://gltf-transform.donmccurdy.com/cli) and converted to `glb`.
+
 ```js
 import('@pmndrs/assets/models/suzi.glb')
 ```
@@ -96,7 +99,7 @@ see: [`src/models`](src/models) for all
 
 # Textures
 
-Compressed textures, resized to 512x512 and converted to webp.
+Compressed textures, resized to 512x512 and converted to `webp`.
 
 ```js
 import('@pmndrs/assets/textures/cloud.webp')
