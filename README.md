@@ -88,8 +88,10 @@ see: [`src/hdri`](src/hdri) for all
 
 # Textures
 
+Compressed textures, resized to 512x512 and converted to webp.
+
 ```js
-import('@pmndrs/assets/textures/cloud.png')
+import('@pmndrs/assets/textures/cloud.webp')
 ```
 
 see: [`src/textures`](src/textures) for all
