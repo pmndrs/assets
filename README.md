@@ -14,8 +14,9 @@ These assets are base64 packed javascript exports that can be npm installed and 
   <tr>
     <td valign="top">
       <ul>
+        <li><a href="#fonts">Fonts</a></li>
         <li><a href="#hdris">HDRIs</a></li>
-        <li><a href="#textures">Textures</a></li>     
+        <li><a href="#textures">Textures</a></li>
       </ul>
     </td>
   </tr>
