@@ -86,6 +86,14 @@ import('@pmndrs/assets/hdri/apartment.exr')
 
 see: [`src/hdri`](src/hdri) for all
 
+# Models
+
+```js
+import('@pmndrs/assets/models/suzi.glb')
+```
+
+see: [`src/models`](src/models) for all
+
 # Textures
 
 Compressed textures, resized to 512x512 and converted to webp.

@@ -11,6 +11,7 @@
     "release": "semantic-release"
   },
   "devDependencies": {
+    "@gltf-transform/cli": "^3.4.0",
     "copyfiles": "^2.3.0",
     "json": "^11.0.0",
     "semantic-release": "^20.1.1"
