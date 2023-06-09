@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install packages
         run: |
-          apt-get install imagemagick jq
+          sudo apt-get install -y imagemagick jq
       - uses: actions/setup-node@v3
         with:
           cache: 'yarn'
