@@ -33,15 +33,15 @@ $(DIST)/%.js: $(SRC)/%.b64
 %.b64: %.compressed
 	cat $^ | openssl base64 | tr -d '\n' > $@
 
-%.exr.compressed: %.tmp.exr
+%.exr.compressed: %.exr
 	convert $< -compress DWAB -resize $(RESIZE) $@
 %.exr: %.hdr
 	convert $< $@
 
-TOWEBP_TYPES = webp png jpg
+%.webp.compressed: %.webp
+	convert $< -quality $(QUALITY) -resize $(RESIZE) $@
+TOWEBP_TYPES = png jpg
 define WEBP_TEMPLATE
-%.webp.compressed: $$*.tmp.webp
-	convert $$< -quality $(QUALITY) -resize $(RESIZE) $$@
 %.webp: %.$(1)
 	convert $$< $$@
 endef
