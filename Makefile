@@ -1,6 +1,9 @@
 SRC = src
 DIST = dist
 
+RESIZE = 512x512
+QUALITY = 80
+
 # hdr -> exr.js
 HDR_FILES := $(wildcard $(SRC)/**/*.hdr)
 HDR_TARGETS := $(patsubst $(SRC)/%,$(DIST)/%.js,$(HDR_FILES:%.hdr=%.exr))
@@ -20,9 +23,6 @@ JSON_TARGETS := $(patsubst $(SRC)/%,$(DIST)/%.js,$(JSON_FILES))
 TARGETS = $(HDR_TARGETS) \
 	$(WEBP_TARGETS) $(PNG_TARGETS) $(JPG_TARGETS) \
 	$(JSON_TARGETS)
-
-RESIZE = 512x512
-QUALITY = 80
 
 all: $(TARGETS)
 
