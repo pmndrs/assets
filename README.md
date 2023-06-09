@@ -62,7 +62,7 @@ new THREE.EXRLoader().load(city, (texture) => {
 
 # Fonts
 
-The [Inter](https://rsms.me/inter/) font family converted to json using [facetype.js](https://gero3.github.io/facetype.js/) with a subset of `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789,;.:-_<>$£!+"*ç%&/~[]{}()=?``^'#€öÖäÄüÜ§°`. files are ~30-40kb.
+The [Inter](https://rsms.me/inter/) font family converted to json using [facetype.js](https://gero3.github.io/facetype.js/) with a subset of ` ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789,;.:-_<>$£!+"*ç%&/~[]{}()=?``^'#€öÖäÄüÜ§° `. files are ~30-40kb.
 
 ```js
 import('@pmndrs/assets/fonts/inter_regular.json')
@@ -103,6 +103,7 @@ Pre-requisites:
 - Make
 - ImageMagick
 - jq
+- openssl
 
 ```sh
 $ make
