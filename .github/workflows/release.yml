@@ -11,12 +11,12 @@ concurrency:
 
 jobs:
   release-job:
-    runs-on: ubuntu-latest
+    runs-on: macos-13
     steps:
       - uses: actions/checkout@v3
       - name: Install packages
         run: |
-          sudo apt-get install -y imagemagick jq
+          brew install imagemagick jq
       - uses: actions/setup-node@v3
         with:
           cache: 'yarn'
