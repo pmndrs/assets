@@ -89,6 +89,13 @@ see: [`src/hdri`](src/hdri) for all
 
 # Models
 
+<p>
+  <a href="https://codesandbox.io/s/hlvk2w">
+    <img width="20%" alt="" src="https://github.com/pmndrs/assets/assets/76580/532f7904-10bb-4e47-957c-eda3cc70ee7b">
+  </a>
+</p>
+
+
 A selection of models optimized with [`gltf-transform optimize`](https://gltf-transform.donmccurdy.com/cli) and converted to `glb`.
 
 ```js
