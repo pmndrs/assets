@@ -16,6 +16,8 @@ Base64-packed javascript (default-)module exports that can be npm installed and 
       <ul>
         <li><a href="#fonts">Fonts</a></li>
         <li><a href="#hdris">HDRIs</a></li>
+        <li><a href="#matcaps">Matcaps</a></li>
+        <li><a href="#normals">Normals</a></li>
         <li><a href="#models">Models</a></li>
         <li><a href="#textures">Textures</a></li>
       </ul>
@@ -71,7 +73,7 @@ new THREE.EXRLoader().load(city, (texture) => {
 
 # Fonts
 
-The [Inter](https://rsms.me/inter/) font family converted to _.json using [facetype.js](https://gero3.github.io/facetype.js), and _.woff using [fonttools](https://github.com/fonttools/fonttools) with a subset of ` ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789,;.:-_<>$£!+"*ç%&/~[]{}()=?``^'#€öÖäÄüÜ§° `. Each json is ~40kb, each woff ~20kb.
+The [Inter](https://rsms.me/inter/) font family converted to *.json using [facetype.js](https://gero3.github.io/facetype.js), and *.woff using [fonttools](https://github.com/fonttools/fonttools) with a subset of ` ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789,;.:-_<>$£!+"*ç%&/~[]{}()=?``^'#€öÖäÄüÜ§° `. Each json is ~40kb, each woff ~20kb.
 
 ```js
 import interJson from '@pmndrs/assets/fonts/inter_regular.json'
@@ -95,6 +97,18 @@ import apartment from '@pmndrs/assets/hdri/apartment.exr'
 ```
 
 index: [`src/hdri`](src/hdri)
+
+# Matcaps
+
+Compressed mapcaps, resized to 512x512 and converted to `webp`. refer to [emmelleppi/matcaps](https://github.com/emmelleppi/matcaps) for previews.
+
+index: [`src/matcaps`](src/matcaps)
+
+# Normals
+
+Compressed normal-maps, resized to 512x512 and converted to `webp`. refer to [emmelleppi/normal-maps](https://github.com/emmelleppi/normal-maps) for previews.
+
+index: [`src/normals`](src/normals)
 
 # Models
 
