@@ -6,7 +6,7 @@
 npm install @pmndrs/assets
 ```
 
-These assets are base64 packed javascript exports that can be npm installed and imported. They are thereby self-hosted and safe from outages.
+Base64 packed javascript exports that can be npm installed and imported. They are thereby self-hosted and safe from outages. All assets are optimized and compressed.
 
 # Index
 
@@ -63,10 +63,11 @@ new THREE.EXRLoader().load(city, (texture) => {
 
 # Fonts
 
-The [Inter](https://rsms.me/inter/) font family converted to json using [facetype.js](https://gero3.github.io/facetype.js/) with a subset of ` ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789,;.:-_<>$£!+"*ç%&/~[]{}()=?``^'#€öÖäÄüÜ§° `. files are ~30-40kb.
+The [Inter](https://rsms.me/inter/) font family converted to json using [facetype.js](https://gero3.github.io/facetype.js), and woff using [fontmin](https://github.com/ecomfe/fontmin) with a subset of ` ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789,;.:-_<>$£!+"*ç%&/~[]{}()=?``^'#€öÖäÄüÜ§° `. files are ~30-40kb.
 
 ```js
 import('@pmndrs/assets/fonts/inter_regular.json')
+import('@pmndrs/assets/fonts/inter_regular.woff')
 ```
 
 see: [`src/fonts`](src/fonts) for all
