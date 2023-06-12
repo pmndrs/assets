@@ -59,7 +59,7 @@ Keep [bundler limitations](https://github.com/rollup/plugins/tree/master/package
 
 ### Import (with care ⚠️)
 
-You can of course also directly import the assets, but *do it only in modules that already are split from the main bundle*! It is not recommended for your entry points as it would considerally impede time-to-load.
+You can of course also directly import the assets, but _do it only in modules that already are split from the main bundle_! It is not recommended for your entry points as it would considerally impede time-to-load.
 
 ```jsx
 import city from '@pmndrs/assets/hdri/city.exr'
@@ -71,7 +71,7 @@ new THREE.EXRLoader().load(city, (texture) => {
 
 # Fonts
 
-The [Inter](https://rsms.me/inter/) font family converted to *.json using [facetype.js](https://gero3.github.io/facetype.js), and *.woff using [fontmin](https://github.com/ecomfe/fontmin) with a subset of `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789,;.:-_<>$£!+"*ç%&/~[]{}()=?``^'#€öÖäÄüÜ§°`. Each json is ~30-40kb, each woff ~100-200kb.
+The [Inter](https://rsms.me/inter/) font family converted to _.json using [facetype.js](https://gero3.github.io/facetype.js), and _.woff using [fonttools](https://github.com/fonttools/fonttools) with a subset of ` ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789,;.:-_<>$£!+"*ç%&/~[]{}()=?``^'#€öÖäÄüÜ§° `. Each json is ~30-40kb, each woff ~15-20kb.
 
 ```js
 import interJson from '@pmndrs/assets/fonts/inter_regular.json'
@@ -88,7 +88,7 @@ index: [`src/fonts`](src/fonts)
   </a>
 </p>
 
-A selection of [Polyhaven](https://polyhaven.com/hdris) HDRIs, resized to 512x512 and converted to EXR with DWAB compression. They are about 7x smaller than the Polyhaven originals. Each hdr is ~100-200kb.
+A selection of [Polyhaven](https://polyhaven.com/hdris) HDRIs, resized to 512x512 and converted to EXR with DWAB compression. They are about 7x smaller than the Polyhaven originals. Each exr is ~100-200kb.
 
 ```js
 import apartment from '@pmndrs/assets/hdri/apartment.exr'
@@ -130,6 +130,7 @@ Pre-requisites:
 - Nodejs
 - ImageMagick 7+
 - jq
+- fonttools
 - openssl
 
 ```sh

@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install packages
         run: |
-          brew install imagemagick jq
+          brew install imagemagick jq fonttools
       - uses: actions/setup-node@v3
         with:
           cache: 'yarn'
