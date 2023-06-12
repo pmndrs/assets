@@ -6,7 +6,7 @@
 npm install @pmndrs/assets
 ```
 
-Base64-packed javascript (default-)module exports that can be npm installed and imported. Assets are thereby self-hosted and safe from outages. All assets are resized, optimized and compressed.
+Base64-packed javascript (default-)module exports that can be npm installed and imported. Assets are thereby self-hosted and safe from outages. All assets are resized, optimized and compressed, ready to be consumed on the web.
 
 # Index
 
