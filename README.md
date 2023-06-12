@@ -102,11 +102,19 @@ index: [`src/hdri`](src/hdri)
 
 Compressed mapcaps, resized to 512x512 and converted to `webp`. refer to [emmelleppi/matcaps](https://github.com/emmelleppi/matcaps) for previews.
 
+```js
+import suzi from '@pmndrs/assets/matcaps/0404E8_0404B5_0404CB_3333FC-512px.webp'
+```
+
 index: [`src/matcaps`](src/matcaps)
 
 # Normals
 
 Compressed normal-maps, resized to 512x512 and converted to `webp`. refer to [emmelleppi/normal-maps](https://github.com/emmelleppi/normal-maps) for previews.
+
+```js
+import suzi from '@pmndrs/assets/normals/151_norm.webp'
+```
 
 index: [`src/normals`](src/normals)
 
