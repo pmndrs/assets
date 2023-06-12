@@ -36,10 +36,11 @@ const inter = import('@pmndrs/assets/fonts/inter_regular.woff').then((m) => m.de
 const suzi = import('@pmndrs/assets/models/suzi.glb').then((m) => m.default)
 const bridge = import('@pmndrs/assets/hdri/bridge.exr').then((m) => m.default)
 
-...
-<Environment files={suspend(city)} />
-<Gltf src={suspend(suzi)} />
-<Text font={suspend(inter)}>hello</Text>
+function Scene() {
+  return (
+    <Environment files={suspend(city)} />
+    <Gltf src={suspend(suzi)} />
+    <Text font={suspend(inter)}>hello</Text>
 ```
 
 ### Dynamic import
