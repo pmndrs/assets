@@ -44,9 +44,9 @@ function Scene() {
     <Text font={suspend(inter)}>hello</Text>
 ```
 
-### Dynamic import
+### Dynamic import (recommended 👍)
 
-If you import the asset will be bundle split, it will not be part of your main bundle.
+If you import dynamically the asset will be bundle split, it will not be part of your main bundle.
 
 ```jsx
 const city = await import('@pmndrs/assets/hdri/city.exr').then((m) => m.default)
@@ -57,9 +57,9 @@ new THREE.EXRLoader().load(city, (texture) => {
 
 Keep [bundler limitations](https://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars#limitations) in mind when you use fully dynamic imports with template literals.
 
-### Import
+### Import (with care ⚠️)
 
-You can do it in files that already are split from the main bundle. But it is not recommended for your entry points as it would considerally impede time-to-load.
+You can of course also directly import the assets, but *do it only in modules that already are split from the main bundle*! It is not recommended for your entry points as it would considerally impede time-to-load.
 
 ```jsx
 import city from '@pmndrs/assets/hdri/city.exr'
@@ -74,8 +74,8 @@ new THREE.EXRLoader().load(city, (texture) => {
 The [Inter](https://rsms.me/inter/) font family converted to *.json using [facetype.js](https://gero3.github.io/facetype.js), and *.woff using [fontmin](https://github.com/ecomfe/fontmin) with a subset of `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789,;.:-_<>$£!+"*ç%&/~[]{}()=?``^'#€öÖäÄüÜ§°`. Each json is ~30-40kb, each woff ~100-200kb.
 
 ```js
-import('@pmndrs/assets/fonts/inter_regular.json').then((m) => m.default)
-import('@pmndrs/assets/fonts/inter_regular.woff').then((m) => m.default)
+import interJson from '@pmndrs/assets/fonts/inter_regular.json'
+import interWoff from '@pmndrs/assets/fonts/inter_regular.woff'
 ```
 
 index: [`src/fonts`](src/fonts)
@@ -91,7 +91,7 @@ index: [`src/fonts`](src/fonts)
 A selection of [Polyhaven](https://polyhaven.com/hdris) HDRIs, resized to 512x512 and converted to EXR with DWAB compression. They are about 7x smaller than the Polyhaven originals. Each hdr is ~100-200kb.
 
 ```js
-import('@pmndrs/assets/hdri/apartment.exr')
+import apartment from '@pmndrs/assets/hdri/apartment.exr'
 ```
 
 index: [`src/hdri`](src/hdri)
@@ -107,7 +107,7 @@ index: [`src/hdri`](src/hdri)
 A selection of models optimized with [`gltf-transform optimize`](https://gltf-transform.donmccurdy.com/cli) and converted to `glb`.
 
 ```js
-import('@pmndrs/assets/models/suzi.glb')
+import suzi from '@pmndrs/assets/models/suzi.glb'
 ```
 
 index: [`src/models`](src/models)
@@ -117,7 +117,7 @@ index: [`src/models`](src/models)
 Compressed textures, resized to 512x512 and converted to `webp`.
 
 ```js
-import('@pmndrs/assets/textures/cloud.webp')
+import cloud from '@pmndrs/assets/textures/cloud.webp'
 ```
 
 index: [`src/textures`](src/textures)
