@@ -32,6 +32,7 @@ In React you can use `suspend` from [suspend-react](https://github.com/pmndrs/su
 ```jsx
 import { Gltf, Text, Environment } from '@react-three/drei'
 import { suspend } from 'suspend-react'
+
 const inter = import('@pmndrs/assets/fonts/inter_regular.woff').then((m) => m.default)
 const suzi = import('@pmndrs/assets/models/suzi.glb').then((m) => m.default)
 const bridge = import('@pmndrs/assets/hdri/bridge.exr').then((m) => m.default)
@@ -73,8 +74,8 @@ new THREE.EXRLoader().load(city, (texture) => {
 The [Inter](https://rsms.me/inter/) font family converted to *.json using [facetype.js](https://gero3.github.io/facetype.js), and *.woff using [fontmin](https://github.com/ecomfe/fontmin) with a subset of `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789,;.:-_<>$£!+"*ç%&/~[]{}()=?``^'#€öÖäÄüÜ§°`. Each json is ~30-40kb, each woff ~100-200kb.
 
 ```js
-import('@pmndrs/assets/fonts/inter_regular.json')
-import('@pmndrs/assets/fonts/inter_regular.woff')
+import('@pmndrs/assets/fonts/inter_regular.json').then((m) => m.default)
+import('@pmndrs/assets/fonts/inter_regular.woff').then((m) => m.default)
 ```
 
 index: [`src/fonts`](src/fonts)
