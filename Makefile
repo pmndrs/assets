@@ -26,6 +26,10 @@ JPG_TARGETS := $(patsubst $(SRC)/%,$(DIST)/%.js,$(JPG_FILES:%.jpg=%.webp))
 JSON_FILES := $(wildcard $(SRC)/**/*.json)
 JSON_TARGETS := $(patsubst $(SRC)/%,$(DIST)/%.js,$(JSON_FILES))
 
+# woff -> woff.js
+WOFF_FILES := $(wildcard $(SRC)/**/*.woff)
+WOFF_TARGETS := $(patsubst $(SRC)/%,$(DIST)/%.js,$(WOFF_FILES))
+
 # glb,gltf -> glb.js
 GLB_FILES := $(wildcard $(SRC)/**/*.glb)
 GLB_TARGETS := $(patsubst $(SRC)/%,$(DIST)/%.js,$(GLB_FILES))
@@ -34,7 +38,7 @@ GLTF_TARGETS := $(patsubst $(SRC)/%,$(DIST)/%.js,$(GLTF_FILES:%.gltf=%.glb))
 
 TARGETS = $(HDR_TARGETS) \
 	$(WEBP_TARGETS) $(PNG_TARGETS) $(JPG_TARGETS) \
-	$(JSON_TARGETS) \
+	$(JSON_TARGETS) $(WOFF_TARGETS) \
 	$(GLB_TARGETS) $(GLTF_TARGETS)
 
 all: $(TARGETS)
@@ -60,6 +64,9 @@ $(DIST)/%.js: $(SRC)/%.b64
 
 %.json.compressed: %.json
 	cat $< | jq -c > $@
+
+%.woff.compressed: %.woff
+	cp $< $@
 
 %.glb.compressed: %.glb
 	npx gltf-transform optimize $< $*.tmp.glb
