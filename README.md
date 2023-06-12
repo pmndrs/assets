@@ -33,15 +33,15 @@ In React you can use `suspend` from [suspend-react](https://github.com/pmndrs/su
 import { Gltf, Text, Environment } from '@react-three/drei'
 import { suspend } from 'suspend-react'
 
-const inter = import('@pmndrs/assets/fonts/inter_regular.woff').then((m) => m.default)
-const suzi = import('@pmndrs/assets/models/suzi.glb').then((m) => m.default)
-const bridge = import('@pmndrs/assets/hdri/bridge.exr').then((m) => m.default)
+const inter = import('@pmndrs/assets/fonts/inter_regular.woff')
+const suzi = import('@pmndrs/assets/models/suzi.glb')
+const bridge = import('@pmndrs/assets/hdri/bridge.exr')
 
 function Scene() {
   return (
-    <Environment files={suspend(city)} />
-    <Gltf src={suspend(suzi)} />
-    <Text font={suspend(inter)}>hello</Text>
+    <Environment files={suspend(city).default} />
+    <Gltf src={suspend(suzi).default} />
+    <Text font={suspend(inter).default}>hello</Text>
 ```
 
 ### Dynamic import (recommended 👍)
@@ -49,8 +49,8 @@ function Scene() {
 If you import dynamically the asset will be bundle split, it will not be part of your main bundle.
 
 ```jsx
-const city = await import('@pmndrs/assets/hdri/city.exr').then((m) => m.default)
-new THREE.EXRLoader().load(city, (texture) => {
+const city = await import('@pmndrs/assets/hdri/city.exr')
+new THREE.EXRLoader().load(city.default, (texture) => {
   // ...
 })
 ```
