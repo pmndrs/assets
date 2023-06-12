@@ -3,7 +3,7 @@ DIST = dist
 
 RESIZE = 512x512
 QUALITY = 80
-FONTCHARS = ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789,;.:-_<>$$£!+\"*ç%&/~[]{}()=?\`^\'#€öÖäÄüÜ§°
+FONTCHARS = ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 ,;.:-_<>$$£!+\"*ç%&/~[]{}()=?\`^\'#€öÖäÄüÜ§°
 
 #
 # Build TARGETS
