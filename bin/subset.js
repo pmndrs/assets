@@ -7,20 +7,8 @@
 import { exec } from 'child_process'
 
 // Function to convert a string to Unicode
-function toUnicode(theString) {
-  let unicodeString = ''
-  for (let i = 0; i < theString.length; i++) {
-    let theUnicode = theString.charCodeAt(i).toString(16).toUpperCase()
-    while (theUnicode.length < 4) {
-      theUnicode = '0' + theUnicode
-    }
-    unicodeString += 'U+' + theUnicode
-    if (i < theString.length - 1) {
-      unicodeString += ','
-    }
-  }
-  return unicodeString
-}
+const toUnicode = (str) =>
+  [...str].map((c) => 'U+' + c.charCodeAt(0).toString(16).toUpperCase().padStart(4, '0')).join(',')
 
 // Function to call pyftsubset
 function subsetFont(fontName, unicodeString, outputName) {
