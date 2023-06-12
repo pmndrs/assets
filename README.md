@@ -91,7 +91,7 @@ see: [`src/hdri`](src/hdri) for all
 
 <p>
   <a href="https://codesandbox.io/s/hlvk2w">
-    <img width="20%" alt="" src="https://github.com/pmndrs/assets/assets/76580/532f7904-10bb-4e47-957c-eda3cc70ee7b">
+    <img width="20%" alt="" src="https://github-production-user-asset-6210df.s3.amazonaws.com/76580/245103885-532f7904-10bb-4e47-957c-eda3cc70ee7b.png">
   </a>
 </p>
 
