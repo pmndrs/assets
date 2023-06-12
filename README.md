@@ -96,7 +96,6 @@ see: [`src/hdri`](src/hdri) for all
   </a>
 </p>
 
-
 A selection of models optimized with [`gltf-transform optimize`](https://gltf-transform.donmccurdy.com/cli) and converted to `glb`.
 
 ```js
@@ -120,6 +119,7 @@ see: [`src/textures`](src/textures) for all
 Pre-requisites:
 
 - Make
+- Nodejs
 - ImageMagick 7+
 - jq
 - openssl

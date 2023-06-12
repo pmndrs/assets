@@ -45,7 +45,7 @@ all: $(TARGETS)
 
 $(DIST)/%.js: $(SRC)/%.b64
 	mkdir -p $(dir $@)
-	echo "export default 'data:application/octet-binary;base64,$$(cat $<)'" > $@
+	echo "export default 'data:$$(node bin/mime.js $(suffix $*));base64,$$(cat $<)'" > $@
 
 %.b64: %.compressed
 	cat $^ | openssl base64 | tr -d '\n' > $@
