@@ -3,6 +3,7 @@ DIST = dist
 
 RESIZE = 512x512
 QUALITY = 80
+FONTCHARS = ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789,;.:-_<>$$£!+\"*ç%&/~[]{}()=?\`^\'#€öÖäÄüÜ§°
 
 #
 # Build TARGETS
@@ -66,7 +67,7 @@ $(DIST)/%.js: $(SRC)/%.b64
 	cat $< | jq -c > $@
 
 %.woff.compressed: %.woff
-	cp $< $@
+	npx fontmin --basic-text "$(FONTCHARS)" $< $@
 
 %.glb.compressed: %.glb
 	npx gltf-transform optimize $< $*.tmp.glb

@@ -3,7 +3,6 @@
   "version": "0.0.0-semantic-release",
   "description": "📦 Base64 encoded CC0 assets",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf dist && make && npm run copy",
@@ -13,6 +12,7 @@
   "devDependencies": {
     "@gltf-transform/cli": "^3.4.0",
     "copyfiles": "^2.3.0",
+    "fontmin": "^0.9.9",
     "json": "^11.0.0",
     "semantic-release": "^20.1.1"
   },
