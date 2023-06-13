@@ -73,11 +73,25 @@ new THREE.EXRLoader().load(city, (texture) => {
 
 # Fonts
 
-The [Inter](https://rsms.me/inter/) font family converted to *.json using [facetype.js](https://gero3.github.io/facetype.js), and *.woff using [fonttools](https://github.com/fonttools/fonttools) with a subset of ` ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789,;.:-_<>$£!+"*ç%&/~[]{}()=?``^'#€öÖäÄüÜ§° `. Each json is ~40kb, each woff ~20kb.
+The [Inter](https://rsms.me/inter/) font family converted to _.json using [facetype.js](https://gero3.github.io/facetype.js), and _.woff using [fonttools](https://github.com/fonttools/fonttools) with a subset of ` ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789,;.:-_<>$£!+"*ç%&/~[]{}()=?``^'#€öÖäÄüÜ§° `. Each json is ~40kb, each woff ~20kb.
 
 ```js
+import { FontLoader, TextGeometry } from 'three-stdlib'
 import interJson from '@pmndrs/assets/fonts/inter_regular.json'
+
+new FontLoader().parse(interJson, (font) => {
+  const geometry = new TextGeometry('hello', { font })
+})
+```
+
+```js
+import { Text } from 'troika-three-text'
 import interWoff from '@pmndrs/assets/fonts/inter_regular.woff'
+
+const mesh = new Text()
+mesh.font = interWoff
+mesh.text = 'hello'
+mesh.sync()
 ```
 
 index: [`src/fonts`](src/fonts)
@@ -94,6 +108,11 @@ A selection of [Polyhaven](https://polyhaven.com/hdris) HDRIs, resized to 512x51
 
 ```js
 import apartment from '@pmndrs/assets/hdri/apartment.exr'
+
+new THREE.EXRLoader().load(apartment, (texture) => {
+  texture.mapping = THREE.EquirectangularReflectionMapping
+  scene.environment = texture
+})
 ```
 
 index: [`src/hdri`](src/hdri)
@@ -104,6 +123,10 @@ Compressed matcaps, resized to 512x512 and converted to `webp`. refer to [emmell
 
 ```js
 import suzi from '@pmndrs/assets/matcaps/0000.webp'
+
+new THREE.TextureLoader().load(suzi, (texture) => {
+  const mesh = new THREE.Mesh(geometry, new THREE.MatCapMaterial({ matcap: texture }))
+})
 ```
 
 index: [`src/matcaps`](src/matcaps)
@@ -114,6 +137,10 @@ Compressed normal-maps, resized to 512x512 and converted to `webp`. refer to [em
 
 ```js
 import suzi from '@pmndrs/assets/normals/0000.webp'
+
+new THREE.TextureLoader().load(suzi, (texture) => {
+  const mesh = new THREE.Mesh(geometry, new THREE.MatStandardMaterial({ normalMap: texture }))
+})
 ```
 
 index: [`src/normals`](src/normals)
@@ -129,7 +156,12 @@ index: [`src/normals`](src/normals)
 A selection of models optimized with [`gltf-transform optimize`](https://gltf-transform.donmccurdy.com/cli) and converted to `glb`.
 
 ```js
+import { GLTFLoader } from 'three-stdlib'
 import suzi from '@pmndrs/assets/models/suzi.glb'
+
+new GLTFLoader().load(suzi, (gltf) => {
+  scene.add(gltf.scene)
+})
 ```
 
 index: [`src/models`](src/models)
