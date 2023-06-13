@@ -32,10 +32,11 @@ Base64-packed javascript (default-)module exports that can be npm installed and 
 In React you can use `suspend` from [suspend-react](https://github.com/pmndrs/suspend-react), or anything else that can resolve a promise. This will allow components to fall into suspense which allows you to control loading states. The assets will be lazy loaded and cached for multiple re-use, they will not appear in the main bundle.
 
 ```jsx
-import { Gltf, Text, Environment } from '@react-three/drei'
+import { Gltf, Text, Text3D, Environment } from '@react-three/drei'
 import { suspend } from 'suspend-react'
 
 const inter = import('@pmndrs/assets/fonts/inter_regular.woff')
+const interBold = import('@pmndrs/assets/fonts/inter_bold.json')
 const suzi = import('@pmndrs/assets/models/suzi.glb')
 const bridge = import('@pmndrs/assets/hdri/bridge.exr')
 
@@ -44,6 +45,7 @@ function Scene() {
     <Environment files={suspend(city).default} />
     <Gltf src={suspend(suzi).default} />
     <Text font={suspend(inter).default}>hello</Text>
+    <Text3D font={suspend(interBold).default}>hello</Text3D>
 ```
 
 ### Dynamic import (recommended 👍)
@@ -52,7 +54,7 @@ If you import dynamically the asset will be bundle split, it will not be part of
 
 ```jsx
 const city = await import('@pmndrs/assets/hdri/city.exr')
-new THREE.EXRLoader().load(city.default, (texture) => {
+new EXRLoader().load(city.default, (texture) => {
   // ...
 })
 ```
@@ -66,7 +68,7 @@ You can of course also directly import the assets, but _do it only in modules th
 ```jsx
 import city from '@pmndrs/assets/hdri/city.exr'
 
-new THREE.EXRLoader().load(city, (texture) => {
+new EXRLoader().load(city, (texture) => {
   // ...
 })
 ```
@@ -77,19 +79,17 @@ The [Inter](https://rsms.me/inter/) font family converted to _.json using [facet
 
 ```js
 import { FontLoader, TextGeometry } from 'three-stdlib'
-import interJson from '@pmndrs/assets/fonts/inter_regular.json'
 
-new FontLoader().parse(interJson, (font) => {
-  const geometry = new TextGeometry('hello', { font })
-})
+const interJson = await import('@pmndrs/assets/fonts/inter_regular.json')
+const geometry = new TextGeometry('hello', { font: new FontLoader().parse(interJson.default) })
 ```
 
 ```js
 import { Text } from 'troika-three-text'
-import interWoff from '@pmndrs/assets/fonts/inter_regular.woff'
 
+const interWoff = await import('@pmndrs/assets/fonts/inter_regular.woff')
 const mesh = new Text()
-mesh.font = interWoff
+mesh.font = interWoff.default
 mesh.text = 'hello'
 mesh.sync()
 ```
@@ -107,9 +107,10 @@ index: [`src/fonts`](src/fonts)
 A selection of [Polyhaven](https://polyhaven.com/hdris) HDRIs, resized to 512x512 and converted to EXR with DWAB compression. They are about 7x smaller than the Polyhaven originals. Each exr is ~100-200kb.
 
 ```js
-import apartment from '@pmndrs/assets/hdri/apartment.exr'
+import { EXRLoader } from 'three-stdlib'
 
-new THREE.EXRLoader().load(apartment, (texture) => {
+const apartment = await import('@pmndrs/assets/hdri/apartment.exr')
+new THREE.EXRLoader().load(apartment.default, (texture) => {
   texture.mapping = THREE.EquirectangularReflectionMapping
   scene.environment = texture
 })
@@ -122,9 +123,8 @@ index: [`src/hdri`](src/hdri)
 Compressed matcaps, resized to 512x512 and converted to `webp`. refer to [emmelleppi/matcaps](https://github.com/emmelleppi/matcaps) for previews.
 
 ```js
-import suzi from '@pmndrs/assets/matcaps/0000.webp'
-
-new THREE.TextureLoader().load(suzi, (texture) => {
+const matcap = await import('@pmndrs/assets/matcaps/0000.webp')
+new THREE.TextureLoader().load(matcap.default, (texture) => {
   const mesh = new THREE.Mesh(geometry, new THREE.MatCapMaterial({ matcap: texture }))
 })
 ```
@@ -136,9 +136,8 @@ index: [`src/matcaps`](src/matcaps)
 Compressed normal-maps, resized to 512x512 and converted to `webp`. refer to [emmelleppi/normal-maps](https://github.com/emmelleppi/normal-maps) for previews.
 
 ```js
-import suzi from '@pmndrs/assets/normals/0000.webp'
-
-new THREE.TextureLoader().load(suzi, (texture) => {
+const normal = await import('@pmndrs/assets/normals/0000.webp')
+new THREE.TextureLoader().load(normal.default, (texture) => {
   const mesh = new THREE.Mesh(geometry, new THREE.MatStandardMaterial({ normalMap: texture }))
 })
 ```
@@ -157,9 +156,9 @@ A selection of models optimized with [`gltf-transform optimize`](https://gltf-tr
 
 ```js
 import { GLTFLoader } from 'three-stdlib'
-import suzi from '@pmndrs/assets/models/suzi.glb'
 
-new GLTFLoader().load(suzi, (gltf) => {
+const suzi = await import('@pmndrs/assets/models/suzi.glb')
+new GLTFLoader().load(suzi.default, (gltf) => {
   scene.add(gltf.scene)
 })
 ```
