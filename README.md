@@ -110,7 +110,7 @@ A selection of [Polyhaven](https://polyhaven.com/hdris) HDRIs, resized to 512x51
 import { EXRLoader } from 'three-stdlib'
 
 const apartment = await import('@pmndrs/assets/hdri/apartment.exr')
-new THREE.EXRLoader().load(apartment.default, (texture) => {
+new EXRLoader().load(apartment.default, (texture) => {
   texture.mapping = THREE.EquirectangularReflectionMapping
   scene.environment = texture
 })
