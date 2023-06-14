@@ -8,7 +8,7 @@ FONTCHARS = ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 ,;.:-
 #
 # Build TARGETS
 #
-# To summup: src/**/*.{hdr,webp,png,jpg,json,glb,gltf} => dist/**/*.{exr,webp,webp,webp,json,glb,glb}.js
+# To summup: src/**/*.{hdr,webp,png,jpg,json,woff,glb,gltf} => dist/**/*.{exr,webp,webp,webp,json,woff,glb,glb}.js
 #
 
 # hdr -> exr.js
