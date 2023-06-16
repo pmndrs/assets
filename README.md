@@ -32,23 +32,27 @@ Base64-packed javascript (default-)module exports that can be npm installed and 
 In React you can use `suspend` from [suspend-react](https://github.com/pmndrs/suspend-react), or anything else that can resolve a promise. This will allow components to fall into suspense which allows you to control loading states. The assets will be lazy loaded and cached for multiple re-use, they will not appear in the main bundle.
 
 ```jsx
-import { Gltf, Text, Text3D, Environment } from '@react-three/drei'
+import { Environment, Gltf, Text, Text3D } from '@react-three/drei'
 import { suspend } from 'suspend-react'
 
+const bridge = import('@pmndrs/assets/hdri/bridge.exr')
+const suzi = import('@pmndrs/assets/models/suzi.glb')
 const inter = import('@pmndrs/assets/fonts/inter_regular.woff')
 const interBold = import('@pmndrs/assets/fonts/inter_bold.json')
-const suzi = import('@pmndrs/assets/models/suzi.glb')
-const bridge = import('@pmndrs/assets/hdri/bridge.exr')
 
 function Scene() {
   return (
-    <Environment files={suspend(city).default} />
+    <Environment files={suspend(bridge).default} />
     <Gltf src={suspend(suzi).default} />
     <Text font={suspend(inter).default}>hello</Text>
     <Text3D font={suspend(interBold).default}>hello</Text3D>
 ```
 
-### Dynamic import (recommended 👍)
+### Dynamic import
+
+> **Note**
+>
+> This is the recommended way
 
 If you import dynamically the asset will be bundle split, it will not be part of your main bundle.
 
@@ -61,7 +65,11 @@ new EXRLoader().load(city.default, (texture) => {
 
 Keep [bundler limitations](https://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars#limitations) in mind when you use fully dynamic imports with template literals.
 
-### Import (with care ⚠️)
+### Import
+
+> **Warning**
+>
+> With care, if you know what you're doing, otherwise: go with [dynamic import](#dynamic-import)
 
 You can of course also directly import the assets, but _do it only in modules that already are split from the main bundle_! It is not recommended for your entry points as it would considerally impede time-to-load.
 
@@ -75,7 +83,7 @@ new EXRLoader().load(city, (texture) => {
 
 # Fonts
 
-The [Inter](https://rsms.me/inter/) font family converted to _.json using [facetype.js](https://gero3.github.io/facetype.js), and _.woff using [fonttools](https://github.com/fonttools/fonttools) with a subset of ` ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789,;.:-_<>$£!+"*ç%&/~[]{}()=?``^'#€öÖäÄüÜ§° `. Each json is ~40kb, each woff ~20kb.
+The [Inter](https://rsms.me/inter/) font family converted to _.json using [facetype.js](https://gero3.github.io/facetype.js), and _.woff using [fonttools](https://github.com/fonttools/fonttools) with a subset of ` ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 ,;.:-_<>$£!+"*ç%&/~[]{}()=?``^'#€öÖäÄüÜ§° `. Each json is ~40kb, each woff ~20kb.
 
 ```js
 import { FontLoader, TextGeometry } from 'three-stdlib'
