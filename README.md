@@ -27,9 +27,9 @@ Base64-packed javascript (default-)module exports that can be npm installed and 
 
 # Usage
 
-### React-three-fiber
+## React-three-fiber
 
-In React you can use `suspend` from [suspend-react](https://github.com/pmndrs/suspend-react), or anything else that can resolve a promise. This will allow components to fall into suspense which allows you to control loading states. The assets will be lazy loaded and cached for multiple re-use, they will not appear in the main bundle.
+In React you can use `suspend` from [suspend-react](https://github.com/pmndrs/suspend-react), or anything else that can resolve a promise. The assets will be lazy loaded and cached for multiple re-use, they will not appear in the main bundle.
 
 ```jsx
 import { Environment, Gltf, Text, Text3D } from '@react-three/drei'
@@ -47,6 +47,8 @@ function Scene() {
     <Text font={suspend(inter).default}>hello</Text>
     <Text3D font={suspend(interBold).default}>hello</Text3D>
 ```
+
+## Vanilla javascript
 
 ### Dynamic import
 
