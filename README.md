@@ -180,7 +180,10 @@ index: [`src/models`](src/models)
 Compressed textures, resized to 512x512 and converted to `webp`.
 
 ```js
-import cloud from '@pmndrs/assets/textures/cloud.webp'
+const cloud = await import('@pmndrs/assets/textures/cloud.webp')
+new THREE.TextureLoader().load(cloud.default, (map) => {
+  const m = new THREE.MeshStandardMaterial({ map })
+})
 ```
 
 index: [`src/textures`](src/textures)
