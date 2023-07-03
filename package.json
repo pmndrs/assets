@@ -4,10 +4,29 @@
   "description": "📦 Base64 encoded CC0 assets",
   "main": "index.js",
   "type": "module",
+  "typesVersions": {
+    "*": {
+      "*.woff": [
+        "base64.d.ts"
+      ],
+      "*.json": [
+        "base64.d.ts"
+      ],
+      "*.exr": [
+        "base64.d.ts"
+      ],
+      "*.webp": [
+        "base64.d.ts"
+      ],
+      "*.glb": [
+        "base64.d.ts"
+      ]
+    }
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf dist && make && npm run copy",
-    "copy": "copyfiles package.json README.md LICENSE dist && json -I -f dist/package.json -e \"this.private=false; this.devDependencies=undefined; this.optionalDependencies=undefined; this.scripts=undefined; this.husky=undefined; this.prettier=undefined; this.jest=undefined; this['lint-staged']=undefined;\"",
+    "copy": "copyfiles package.json base64.d.ts README.md LICENSE dist && json -I -f dist/package.json -e \"this.private=false; this.devDependencies=undefined; this.optionalDependencies=undefined; this.scripts=undefined; this.husky=undefined; this.prettier=undefined; this.jest=undefined; this['lint-staged']=undefined;\"",
     "release": "semantic-release"
   },
   "devDependencies": {
