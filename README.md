@@ -2,7 +2,7 @@
 [![Downloads](https://img.shields.io/npm/dt/@pmndrs/assets.svg?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/@pmndrs/assets)
 [![Discord Shield](https://img.shields.io/discord/740090768164651008?style=flat&colorA=000000&colorB=000000&label=discord&logo=discord&logoColor=ffffff)](https://discord.com/channels/740090768164651008/741751532592038022)
 
-```shell
+```sh
 npm install @pmndrs/assets
 ```
 
@@ -52,7 +52,7 @@ function Scene() {
 
 ### Dynamic import
 
-> **Note**
+> [!NOTE]
 >
 > This is the recommended way
 
@@ -69,7 +69,7 @@ Keep [bundler limitations](https://github.com/rollup/plugins/tree/master/package
 
 ### Import
 
-> **Warning**
+> [!IMPORTANT]
 >
 > With care, if you know what you're doing, otherwise: go with [dynamic import](#dynamic-import)
 
@@ -85,7 +85,9 @@ new EXRLoader().load(city, (texture) => {
 
 # Fonts
 
-The [Inter](https://rsms.me/inter/) font family converted to _.json using [facetype.js](https://gero3.github.io/facetype.js), and _.woff using [fonttools](https://github.com/fonttools/fonttools) with a subset of ` ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 ,;.:-_<>$£!+"*ç%&/~[]{}()=?``^'#€öÖäÄüÜ§° `. Each json is ~40kb, each woff ~20kb.
+The [Inter](https://rsms.me/inter/) font family converted to _.json using [facetype.js](https://gero3.github.io/facetype.js), and _.woff using [fonttools](https://github.com/fonttools/fonttools) with a subset of:
+https://github.com/pmndrs/assets/blob/e46e0fc9ebb5faff61d19dabdb5c2fdbabb75ad0/Makefile#L6
+Each json is ~40kb, each woff ~20kb.
 
 ```js
 import { FontLoader, TextGeometry } from 'three-stdlib'
