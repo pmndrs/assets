@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf dist && make && npm run copy",
+    "build": "rm -rf dist && make && npm run ts-declarations && npm run copy",
+    "ts-declarations": "tsc dist/**/*.js --declaration --allowJs --emitDeclarationOnly --outDir dist --skipLibCheck",
     "copy": "copyfiles package.json README.md LICENSE dist && json -I -f dist/package.json -e \"this.private=false; this.devDependencies=undefined; this.optionalDependencies=undefined; this.scripts=undefined; this.husky=undefined; this.prettier=undefined; this.jest=undefined; this['lint-staged']=undefined;\"",
     "release": "semantic-release"
   },
@@ -14,7 +15,8 @@
     "@gltf-transform/cli": "^3.4.0",
     "copyfiles": "^2.3.0",
     "json": "^11.0.0",
-    "semantic-release": "^20.1.1"
+    "semantic-release": "^20.1.1",
+    "typescript": "^5.6.2"
   },
   "repository": {
     "type": "git",
@@ -30,5 +32,6 @@
   "bugs": {
     "url": "https://github.com/pmndrs/assets/issues"
   },
-  "homepage": "https://github.com/pmndrs/assets#readme"
+  "homepage": "https://github.com/pmndrs/assets#readme",
+  "packageManager": "yarn@1.22.22"
 }
