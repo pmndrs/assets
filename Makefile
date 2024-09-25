@@ -42,7 +42,7 @@ TARGETS = $(HDR_TARGETS) \
 	$(JSON_TARGETS) $(WOFF_TARGETS) \
 	$(GLB_TARGETS) $(GLTF_TARGETS)
 
-all: $(TARGETS)
+all: $(TARGETS) ts-declarations
 
 $(DIST)/%.js: $(SRC)/%.b64
 	mkdir -p $(dir $@)
@@ -79,3 +79,7 @@ $(DIST)/%.js: $(SRC)/%.b64
 .PHONY: clean
 clean:
 	rm -rf $(DIST)
+
+.PHONY: ts-declarations
+ts-declarations:
+	cd $(DIST) && npx -p typescript tsc **/*.js --declaration --allowJs --emitDeclarationOnly --skipLibCheck
