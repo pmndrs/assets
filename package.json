@@ -2,21 +2,19 @@
   "name": "@pmndrs/assets",
   "version": "0.0.0-semantic-release",
   "description": "📦 Base64 encoded CC0 assets",
-  "main": "index.js",
   "type": "module",
+  "types": "types.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf dist && make && npm run ts-declarations && npm run copy",
-    "ts-declarations": "tsc dist/**/*.js --declaration --allowJs --emitDeclarationOnly --outDir dist --skipLibCheck",
-    "copy": "copyfiles package.json README.md LICENSE dist && json -I -f dist/package.json -e \"this.private=false; this.devDependencies=undefined; this.optionalDependencies=undefined; this.scripts=undefined; this.husky=undefined; this.prettier=undefined; this.jest=undefined; this['lint-staged']=undefined;\"",
+    "build": "rm -rf dist && make && npm run copy",
+    "copy": "copyfiles package.json types.d.ts README.md LICENSE dist && json -I -f dist/package.json -e \"this.private=false; this.devDependencies=undefined; this.optionalDependencies=undefined; this.scripts=undefined; this.husky=undefined; this.prettier=undefined; this.jest=undefined; this['lint-staged']=undefined;\"",
     "release": "semantic-release"
   },
   "devDependencies": {
     "@gltf-transform/cli": "^3.4.0",
     "copyfiles": "^2.3.0",
     "json": "^11.0.0",
-    "semantic-release": "^20.1.1",
-    "typescript": "^5.6.2"
+    "semantic-release": "^20.1.1"
   },
   "repository": {
     "type": "git",
